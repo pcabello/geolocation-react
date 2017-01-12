@@ -1,0 +1,71 @@
+body {
+  background-color: #f0f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.geo__container__header {
+  background-color: #ccc;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  max-width: 650px;
+  overflow: hidden;
+  padding: 20px;
+  text-align: center;
+}
+
+.geo__container__header form {
+  float: left;
+}
+
+.geo__container__map {
+  background-color:  #cce6ff;
+  border: 1px solid #ddd;
+  margin: 0 auto;
+  max-width: 650px;
+  padding: 20px;
+  text-align: center;
+}
+
+.geo_clear_location {
+  float: left;
+  padding-left: 10px;
+}
+
+.geo_my_location {
+  float: left;
+  padding-left: 10px;
+}
+
+.geo_show_information {
+  background-color: #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.btn--submit {
+  background-color: #33cccc;
+  border-color: #33cccc;
+  color: #fff;
+  margin-left: 10px;
+  padding: 5px;
+}
+
+.btn--location {
+  background-color: #ff6666;
+  color: #fff;
+  float: left;
+  padding: 5px;
+}
+
+.btn--clear {
+  background-color: #999;
+  border-color: #999;
+  color: #fff;
+  padding: 5px;
+}
+
+.field--default {
+  border-color: #ccc;
+  padding: 5px;
+}
