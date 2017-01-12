@@ -16,15 +16,13 @@ class App extends React.Component {
 
 
   UpdateDirection(lat, long, locationType) {
-    var aux = [];
+    let aux = [];
     aux[locationType] = this.state.directionList;
     aux[locationType].push([lat,long]);
 
     this.setState({
       directionList: aux[locationType]
     });
-
-    console.log(this.state.directionList);
   }
 
   ShowMap(directions) {
@@ -70,6 +68,7 @@ class GeoAdd extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     let field = this.state.value.trim();
+
     if (!field) {
       return
     } else {
@@ -78,9 +77,9 @@ class GeoAdd extends React.Component {
   }
 
   Validate(value) {
-    var reg = /^(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/,
-        result =  reg.test(value),
-        validate = '';
+    const reg = /^(www.)?([a-zA-Z0-9]+).[a-zA-Z0-9]*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
+    let result =  reg.test(value);
+    let validate = '';
 
     if(result) {
       this.findLocation('site_location');
@@ -102,7 +101,8 @@ class GeoAdd extends React.Component {
     this.setState({
       value: '',
       myLocation: true
-    }, function() {
+
+    }, () =>  {
       this.findLocation('my_location');
     });
 
@@ -111,7 +111,7 @@ class GeoAdd extends React.Component {
   findLocation(locationType) {
     const that = this.props;
 
-    axios.get('http://ip-api.com/json/' + this.state.value).then(function(response){
+    axios.get('http://ip-api.com/json/' + this.state.value).then(response => {
        if(response.status !== 'fail') {
          const jsonResponse = response.request.response;
          const parsed = JSON.parse(jsonResponse);
@@ -120,7 +120,7 @@ class GeoAdd extends React.Component {
        } else {
          return;
        }
-     }).catch(function(error) {
+     }).catch( error => {
 
      });
   }
@@ -182,7 +182,7 @@ class GeoMapa extends React.Component {
     let stg = '';
     let information = '';
 
-    arr.map(function(num, i) {
+    arr.map((num, i) => {
        stg += num[0] + ',' + num[1] + '&zoom=6&size=400x400&markers=color:blue|' + num[0] + ',' + num[1] + '&zoom=6&size=400x400&markers=color:blue|';
        information += 'Latitude: ' + num[0] + ' Longitude: ' + num[1];
     });
